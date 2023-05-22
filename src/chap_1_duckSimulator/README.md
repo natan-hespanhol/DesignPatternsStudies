@@ -17,26 +17,26 @@ graph BT;
 ```
 #### Programming to an implementation would be:
 
-Dog d = new Dog();
-d.bark();
+    Dog d = new Dog();
+    d.bark();
 
-Cat c = new Cat();
-c.meow();
+    Cat c = new Cat();
+    c.meow();
 
 
 #### Programming to an interface/supertype would be:
 
-Animal animal = new Dog();
-animal.makeSound();
+    Animal animal = new Dog();
+    animal.makeSound();
 
 ##### ...or even better:
 
-Animal animal = getAnimal();
-animal.makeSound();
+    Animal animal = getAnimal();
+    animal.makeSound();
 
 ### 3. Give priority to composition over inheritance 
 
-- \"...has one...\" is much better than \"...is one...\" 
+    \"...has one...\" is much better than \"...is one...\" 
 
 --------------------------------------
 
@@ -64,13 +64,18 @@ classDiagram
     Duck --> FlyBehavior
     FlyBehavior: +fly()
     FlyBehavior <.. FlyWithWings
+    FlyWithWings: +fly()
     FlyBehavior <.. FlyNoWay
+    FlyNoWay: +fly()
     
     Duck --> QuackBehavior
     QuackBehavior: +quack()
     QuackBehavior <.. Quack
+    Quack: +quack()
     QuackBehavior <.. Squeak
+    Squeak: +quack()
     QuackBehavior <.. MuteQuack
+    MuteQuack: +quack()
     
 ```
 
